@@ -2,7 +2,9 @@
 
 import { MenuIcon } from 'lucide-react';
 import type { Session } from 'next-auth';
+import { signOut } from 'next-auth/react';
 import Link from 'next/link';
+import { Button } from '~/ui/primitives/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -36,7 +38,7 @@ export default function Menu({ session }: { session: Session | null }) {
           <>
             <DropdownMenuSeparator />
             <DropdownMenuLabel asChild className="text-red-500">
-              <Link href="api/auth/signout">Sign Out</Link>
+              <Button onClick={() => signOut()}>Sign Out</Button>
             </DropdownMenuLabel>
           </>
         )}
